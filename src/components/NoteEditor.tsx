@@ -55,6 +55,8 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ initialNote, onSave }) => {
       return;
     }
 
+    onSave?.(note);
+
     if (!initialNote) {
       setNote({
         id: uuidv4(),
@@ -64,9 +66,10 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ initialNote, onSave }) => {
       });
     }
 
-    onSave?.(note);
     setSaving(false);
   };
+
+  console.log(saving);
 
   return (
     <>
